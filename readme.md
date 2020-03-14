@@ -3,7 +3,7 @@
 
 ## dependencies
 1. Fiji
-	* download at:
+	* download at:https://imagej.net/Fiji/Downloads
 	* add the scripts folder to the path
 ```Matlab
 addpath('path\Fiji.app\scripts', '-end');
