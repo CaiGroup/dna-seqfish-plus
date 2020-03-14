@@ -3,7 +3,7 @@
 
 ## dependencies
 1. Fiji
-	* download at:https://imagej.net/Fiji/Downloads
+	* download at: https://imagej.net/Fiji/Downloads
 	* add the scripts folder to the path
 ```Matlab
 addpath('path\Fiji.app\scripts', '-end');
@@ -17,23 +17,15 @@ javaaddpath('path\bioformats_package.jar');
 ```
 
 ## packages
-1. align
-* functions to align images for dapi and fiducial markers
-2. process
-* functions to process images
-3. decoding
-* decode points
-4. segment
-* segment cells
-5. immunofluorescence
-* retrieve pixel intensities of antibody stains
-6. spots
-* dot detection
-7. threshold
-* manual and auto threshold
-8. preprocess
-* preprocess images: imagej background subtraction, uneven illumination correction
-9. examples
-* example scripts
-10. io
-* input/output TIFF, csv, and mat files
+| package  | Description |
+| ------------- | ------------- |
+| align  | dapi or fiducial alignment  |
+| process  | grab spots and organize  |
+| decode  | decode points  |
+| segment | io for ilastik masks, assign points to masks  |
+| immunofluorescence  | retrieve intensity profile of images  |
+| spots  | spot detectors  |
+| threshold  | manual and auto  |
+| preprocess | preprocessing filters |
+| io  | TIFF readers and save wrappers  |
+| example  | scripts used |
