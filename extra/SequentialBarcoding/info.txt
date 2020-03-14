@@ -1,0 +1,6 @@
+Building project for sequential barcoding for single gene analysis.
+Outputs the data as the copy number of genes in each ROI.
+
+Author: Nico Pierson
+Email: nicogpt@caltech.edu
+Date: 1/25/2019
