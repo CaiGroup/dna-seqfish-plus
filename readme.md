@@ -49,7 +49,9 @@ example scripts can be found in each package
 Free for non-commercial and academic research. The software is bound by the licensing rules of California Institute of Technology (Caltech)
 
 ## Acknowledgments
-* Yodai Takei - writing, debugging, cleaning code
+Yodai Takei
+
+Image Processing Team
 * Sheel Shah - decoding, spot finding, and 3D radial center
 * Nico Pierson - writing, cleaning, debugging, and validating code
 * Jonathan White - fiduciary alignment
