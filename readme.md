@@ -1,5 +1,5 @@
 # dna-seqfish-plus
-This repostory contains the scripts used in processing the images and barcode calling for the dna seqFISH experiment and the source data which consists of the processed data. 
+This repostory contains the scripts used in processing the images and barcode calling for the DNA seqFISH+ experiment and the source data which consists of the processed data. 
 March 27, 2020
 
 ## Getting Started
@@ -49,9 +49,9 @@ example scripts can be found in each package
 Free for non-commercial and academic research. The software is bound by the licensing rules of California Institute of Technology (Caltech)
 
 ## Image Processing Team
-* Yodai Takei
-* Sheel Shah - decoding, spot finding, and 3D radial center
+* Yodai Takei - writing, cleaning, debugging, and validating code
 * Nico Pierson - writing, cleaning, debugging, and validating code
+* Sheel Shah - decoding, spot finding, and 3D radial center
 * Jonathan White - fiduciary alignment
 
 
