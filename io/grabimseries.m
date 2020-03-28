@@ -1,16 +1,40 @@
-function [image, sizeC, sizeZ, physicalsizeX, physicalsizeY] = grabimseries(imagePath, position)
+function [image, sizeC, sizeZ, physicalsizeX, physicalsizeY] = grabimseries(imagePath, position, varargin)
 % create an image reader for images that are connected by metadata:
 % Anderson data and automation scripts. bfopen opens all of the images for
 % every position
 % This function will only open the images for one position
 %
+% Dependencies:
+% 1. bfmatlab folder needs to be in MATLAB path
+% example: addpath('C:\Users\Long Cai - 2\Desktop\Fiji.app\scripts\', '-end');
+% 2. bio-formats.jar to java class path in matlab
+% example: javaaddpath('C:\Users\Long Cai - 2\Box\code\io\bfmatlab\bioformats_package.jar');
+%
+% optional arg: channel gives the image of a specific channel, or use
+% 'dapi' to get last channel
+%
 % Code adapted from bfmatlab package
 % Date: 5/7/2019
 
-    r = bfGetReader(imagePath);
+%% Set up optional Parameters
+    argsLimit = 2;
+    numvarargs = length(varargin);
+    if numvarargs > argsLimit
+        error('src:grabimseries:TooManyInputs', ...
+            'requires at most 2 optional inputs');
+    end
+    % set defaults for optional inputs
+    optargs = {[], 1};
+    % assign defaults
+    optargs(1:numvarargs) = varargin;
+    % Default Value of ref image is 1
+    [channel, numC] = optargs{:};
+    
+    dimensionOrder = [];
     sizeC = [];
     sizeZ = [];
     sizeT = [];
+    r = bfGetReader(imagePath);
     numSeries = r.getSeriesCount();
     if numSeries == 1
         position = 0;
@@ -72,22 +96,44 @@ function [image, sizeC, sizeZ, physicalsizeX, physicalsizeY] = grabimseries(imag
                 lt = 'T?';
             end
             zct = r.getZCTCoords(i - 1);
+            
             sizeZ = r.getSizeZ();
             if sizeZ > 1
                 qz = int2str(zct(1) + 1);
                 label = [label, '; ', lz, '=', qz, '/', int2str(sizeZ)];
+            else
+                sizeZ = numImages / numC;
+                if sizeZ > 1 
+                    qz = int2str(zct(1) + 1);
+                    label = [label, '; ', lz, '=', qz, '/', int2str(sizeZ)];
+                end
             end
+            
             sizeC = r.getSizeC();
             if sizeC > 1
                 qc = int2str(zct(2) + 1);
                 label = [label, '; ', lc, '=', qc, '/', int2str(sizeC)];
+            else
+                sizeC = numImages / sizeZ;
+                dimensionOrder = 'XYZCT';
+                if sizeC > 1
+                    qc = int2str(zct(2) + 1);
+                    label = [label, '; ', lc, '=', qc, '/', int2str(sizeC)];
+                end
             end
+            
+            
             sizeT = r.getSizeT();
             if sizeT > 1
                 qt = int2str(zct(3) + 1);
                 label = [label, '; ', lt, '=', qt, '/', int2str(sizeT)];
             end
+        else
+            sizeC = 1;
+            sizeZ = 1;
+            sizeT = 1;
         end
+        
         % save image plane and label into the list
         imageList{i, 1} = arr;
         imageList{i, 2} = label;
@@ -98,13 +144,15 @@ function [image, sizeC, sizeZ, physicalsizeX, physicalsizeY] = grabimseries(imag
     seriesMetadata = r.getSeriesMetadata();
     javaMethod('merge', 'loci.formats.MetadataTools', ...
     globalMetadata, seriesMetadata, 'Global ');
-    dimensionOrder = r.getDimensionOrder();
+    if isempty(dimensionOrder)
+        dimensionOrder = r.getDimensionOrder();
+    end
     result{s, 2} = seriesMetadata;
     result{s, 3} = colorMaps;
     result{s, 4} = r.getMetadataStore();
     
     % get physical pixel size
-    omeMeta = r.getMetadataStore(); %omXML = char(omeMeta.dumpXML());
+    omeMeta = r.getMetadataStore();
     if ~isempty(omeMeta.getPixelsPhysicalSizeX(0))
         physicalsizeX = omeMeta.getPixelsPhysicalSizeX(0).value(ome.units.UNITS.MICROMETER).doubleValue();
         physicalsizeY = omeMeta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROMETER).doubleValue();
@@ -113,18 +161,17 @@ function [image, sizeC, sizeZ, physicalsizeX, physicalsizeY] = grabimseries(imag
         physicalsizeY = [];
     end
 
-    image = cell(1,sizeC);
-    for i = 1:sizeC
-        if strcmp(dimensionOrder, 'XYCZT')
-            indices = i:sizeC:numImages;
-        elseif strcmp(dimensionOrder, 'XYZCT')
-            startIndex = sizeZ * (i - 1) + 1;
-            endIndex = startIndex + sizeZ - 1;
-            indices = startIndex:endIndex;
+
+    if ischar(channel)
+        if strcmp(channel, 'dapi')
+            % get last channel
+            chArray = sizeC;
         end
-        for j = indices
-            image{i} = cat(3,image{i}, result{1,1}{j,1});
-        end
+    elseif ~isempty(channel)
+        chArray = channel;
+    else
+        chArray = 1:sizeC;
     end
-    r.close();
+    image = getchim(dimensionOrder, chArray, sizeC, sizeZ, numImages, result);
+    
 end

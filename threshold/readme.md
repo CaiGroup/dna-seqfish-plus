@@ -1,7 +1,4 @@
-
-
-
-# FindThreshold
+# threshold
 Package used to manually threshold images
 Date: 8/28/2019
 
