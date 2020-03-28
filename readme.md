@@ -1,5 +1,6 @@
 # dna-seqfish-plus
 This repostory contains the scripts used in processing the images and barcode calling for the dna seqFISH experiment and the source data which consists of the processed data. 
+March 27, 2020
 
 ## Getting Started
 * Download all the contents of the folder and add it to your Matlab path.
@@ -42,15 +43,17 @@ example scripts can be found in each package
 | process  | grab spots and organize  |
 | decode  | decode genes  |
 | segment | io for ilastik masks, assign points to masks  |
-| example  | scripts used |
+| extra  | extra scripts used for sequential thresholding and spot finding |
 
 ## License
 Free for non-commercial and academic research. The software is bound by the licensing rules of California Institute of Technology (Caltech)
 
 ## Acknowledgments
-* Sheel Shah - Developing the algorithm to find the barcodes, finding dots, and implementing a 3D radial center
-* Jonathan White - Fiduciary alignment
-* Nico Pierson - writing, cleaning, and updating code
+* Yodai Takei - writing, debugging, cleaning code
+* Sheel Shah - decoding, spot finding, and 3D radial center
+* Nico Pierson - writing, cleaning, debugging, and validating code
+* Jonathan White - fiduciary alignment
+
 
 ## Contact
 * Contact the corresponding author: Long Cai (lcai@caltech.edu) for any inquiry.
