@@ -1,5 +1,5 @@
 
-# preprocessimages.m README
+# preprocess
 
 ## Description: 
 * function preprocesses images, then saves the images as .tif and .mat files in 'processedimages folder.
