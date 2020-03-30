@@ -20,22 +20,21 @@
 ### Output:
 1. points, pointspercel .mat 
 3. .csv output of data for point locations
-### Dependencies
-* processing project folder
 ### Requirements
-1. Matlab Version R2018a
+1. Matlab Version R2019a
 2. Processed images
 3. Segmentation in 2d (RoiSet.zip) or 3d (labeled images)
 4. Threshold 
-* matrix of hybcycles by 1 for each channel
-* located in 'experimentDir\threshold\ch1\' directory for channel 1 and 'experimentDir\threshold\ch2\' for channel 2 and so on.
+* matrix of hybcycles by channels
+
 ### Optional Arguments
 1. sqrtradius:
 * square root radius for colocalizing points
 * default is 6, which is equal to 2.45
 2. typedots:
 * type of dot detection: 
-	* 'exons' (default) uses laplacian of gaussians to find inflectionpoints
+	* 'log' is the default LoG filter
+	* 'exons' uses laplacian of gaussians to find inflection points
 	* 'introns' finds local peaks
 3. superresolve:
 * type of super resolution
