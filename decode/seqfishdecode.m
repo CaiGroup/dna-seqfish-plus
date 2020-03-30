@@ -3,12 +3,6 @@ function [] = seqfishdecode(experimentDir, experimentName, experimentLabel, ...
     folderArray, chaTform, physicalTform, usechabboffsets, usephysicaloffsets, ...
     refSaveName, hybSaveName, longestEdges, minEdgeMatch, minDotMatch)   
     
-    % 2nd phase for decoding points
-    addpath('C:\github\streamline-seqFISH\src\process_with_beads\bfmatlab\', '-end');
-    addpath('C:\Users\Long Cai - 1\Desktop\Fiji.app\scripts\', '-end');
-    addpath('C:\github\streamline-seqFISH\src\beadalignment\', '-end');
-
-
     
     %% variables
     segment = 'roi';%'whole';
@@ -32,7 +26,7 @@ function [] = seqfishdecode(experimentDir, experimentName, experimentLabel, ...
     savefname = '"point-offsets_pos%d_"';
     savefnameMat = 'point-offsets_pos%d_';
     % Run the python comand for bead alignment
-    pythonCommand = ['python "C:\Users\Long Cai - 1\Desktop\code\streamline-seqFISH-master-20191219-2\streamline-seqFISH-master\src\beadalignment\20191127_main_par_matlab.py" ' ...
+    pythonCommand = ['python "20191127_main_par_matlab.py" ' ...
         home_dir ' ' ref_fname ' ' ro_fname ' ' savefname ' ' num2str(position) ' ' ...
         num2str(longestEdges) ' ' num2str(minEdgeMatch) ' ' num2str(minDotMatch)];
     system(pythonCommand);
