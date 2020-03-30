@@ -2,7 +2,7 @@
 # preprocessimages.m README
 
 ## Description: 
-* function preprocesses images, then saves the images as .tif and .mat files in 'organizehybs' folder.
+* function preprocesses images, then saves the images as .tif and .mat files in 'processedimages folder.
 
 ## Inputs: 
 1. experiment name (used for naming files)
@@ -19,18 +19,6 @@
 2. Saves dapi aligned images as 'AllHybRegistration.tif'
 3. Saves raw images hybIms, dapiIms, dapiTform as imagesHybDapi-pos[0-9]-[experimentName]-[date].mat
 4. Saves processed images I, dapiTform, position as preProcessedData-pos[0-9]-[experimentName]-[date].mat
-
-## Dependencies
-1. Matlab Version R2018a used
-2. Fiji installed
-	* can be downloaded at https://imagej.net/Fiji/Downloads
-
-## Requirements
-1. images need at least 4 Z-slices for the alignment
-2. mij.jar in Fiji.app/jars
-	* Download at http://bigwww.epfl.ch/sage/soft/mij/mij.jar
-3. 16 GB of memory for number of folders totaling more than 40 
-4. Access to save background subtracted images in experimentDir
 
 ## Options: 
 1. useBackgroundImages: boolean to use background images for subtraction
