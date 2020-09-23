@@ -18,12 +18,16 @@ function [pointsch, offsets] = alignpointswrapper(chArray, pointsPath, offsetsPa
     
     % set offsets equal to the first hyb, and align to ch1. as chromatic
     % aberration and physical shift are fixed and aligned to ch1.
-    for c = chArray
-        offsets{c}.row(:) = offsets{c}.row(:) - offsets{1}.row(1);
-        offsets{c}.col(:) = offsets{c}.col(:) - offsets{1}.col(1);
-        offsets{c}.z(:) = offsets{c}.z(:) - offsets{1}.z(1);
-    end
     
+    ref_row = offsets{1}.row(1);
+    ref_col = offsets{1}.col(1);
+    ref_z = offsets{1}.z(1);
+
+    for c = chArray
+        offsets{c}.row(:) = offsets{c}.row(:) - ref_row ;
+        offsets{c}.col(:) = offsets{c}.col(:) - ref_col;
+        offsets{c}.z(:) = offsets{c}.z(:) - ref_z;
+    end
     
     %[points, intensity] = csv2hybxcell(pointsPath, chArray);
     load(pointsPath, 'points', 'intensity')
