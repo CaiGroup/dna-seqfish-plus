@@ -28,15 +28,15 @@ savefname = 'offsets_pos%d' % position
 datestr = dt.strftime(dt.now(), '%Y%m%d')
 #paramstr = 'xyse%s_zse%s_xyte%s_zte%s_xyme%s_zme%s.csv'
 
-n_longest_edges = 200 # E14 20; brain = 200
+n_longest_edges = 200 # E14 20;
 xy_search_error = 3
 z_search_error = 3
 xy_traversal_error = 2
 z_traversal_error = 2
 xy_match_error = 1
 z_match_error = 1
-min_edge_match = 5 # no more than 10%-20% NOT < 3; brain = 10
-min_dot_matches = 10 # E14 10; brain = 20 or 50 (half amount of fiducial markers)
+min_edge_match = 5 # no more than 10%-20% NOT < 3;
+min_dot_matches = 10 # E14 10; (half amount of fiducial markers)
 min_bright_prop = 0.2
 max_bright_prop = 2
 n_unmatch_give_up = 20
