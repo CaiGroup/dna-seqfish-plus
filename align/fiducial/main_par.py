@@ -48,7 +48,6 @@ def alignPos(pos):
     align(maxXYSearchError, maxZSearchError, maxXYMatchError, maxZMatchError, 
           minMatch, stopRefProp, nLongestCheck, ref_name, hyb_name, pos, 'init')
 
-#home_dir = '/Users/jonathanwhite/Box/Jonathan/2019-09-09-brain-rep2-2-DNAFISH/phase2_many_hybs'
 
 #os.chdir('..'
 #home_dir = os.getcwd()
