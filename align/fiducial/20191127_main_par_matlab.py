@@ -32,18 +32,18 @@ print('position: ' + sys.argv[5])
 datestr = dt.strftime(dt.now(), '%Y%m%d')
 #paramstr = 'xyse%s_zse%s_xyte%s_zte%s_xyme%s_zme%s.csv'
 
-n_longest_edges = int(sys.argv[6]) # E14 20; brain = 200, E14 = 150
+n_longest_edges = int(sys.argv[6]) # E14 20;
 xy_search_error = 3 # 3
 z_search_error = 2 # 2
 xy_traversal_error = 3 # 3
 z_traversal_error = 2 # 2
 xy_match_error = 1  # 1 original
 z_match_error = 1 # 1 origtional
-min_edge_match = int(sys.argv[7])  # no more than 10%-20% NOT < 3; brain = 10; E14 = 3
-min_dot_matches = int(sys.argv[8]) # E14 4; brain = 20 or 50 (half amount of fiducial markers)
+min_edge_match = int(sys.argv[7])  # no more than 10%-20% NOT < 3; E14 = 3
+min_dot_matches = int(sys.argv[8]) # E14 4; (half amount of fiducial markers)
 min_bright_prop = 0.2
 max_bright_prop = 2
-n_unmatch_give_up = 20 #20 for E14 and brain
+n_unmatch_give_up = 20 #20 for E14
 
 xyse_str = str(xy_search_error).replace('.', 'p')
 zse_str = str(z_search_error).replace('.', 'p')
