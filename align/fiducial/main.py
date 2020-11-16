@@ -26,8 +26,7 @@ stopRefProp = 0.1
 nLongestCheck = 100
 
 
-#home_dir = 'C:\\Users\\jonat\\Box\\Jonathan\\2019-09-09-brain-rep2-2-DNAFISH\\phase2_many_hybs'
-home_dir = '/Users/jonathanwhite/Box/Jonathan/2019-09-09-brain-rep2-2-DNAFISH/phase2_many_hybs'
+home_dir = '/Users/jonathanwhite/Box/Jonathan/2019-09-09-rep2-2-DNAFISH/phase2_many_hybs'
 #os.chdir('..'
 #home_dir = os.getcwd()
 os.chdir(home_dir)
