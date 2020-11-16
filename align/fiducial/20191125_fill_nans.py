@@ -9,7 +9,7 @@ import pandas as pd
 import os
 from align_spec_hyb import align
 
-directory = 'C:\\Users\\jonat\\Box\\Jonathan\\2019-09-09-brain-rep2-2-DNAFISH\\phase2_many_hybs\\positions'
+directory = 'C:\\Users\\jonat\\Box\\Jonathan\\2019-09-09-rep2-2-DNAFISH\\phase2_many_hybs\\positions'
 file_to_fill = '20191124_test_par.csv'
 filled_file = '20191124_test_par_filled.csv'
 
