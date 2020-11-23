@@ -3,7 +3,7 @@ This repostory contains the scripts used in processing the images and barcode ca
 March 27, 2020
 
 ## Getting Started
-* Download all the contents of the folder and add it to your Matlab path.
+* Download all the contents of the folder and add it to your MATLAB path.
 
 ### Prerequisites
 * MATLAB R2019a
