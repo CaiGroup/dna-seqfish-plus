@@ -6,7 +6,7 @@ March 27, 2020
 * Download all the contents of the folder and add it to your Matlab path.
 
 ### Prerequisites
-* MATLAB 2019
+* MATLAB R2019a
 
 ### Dependencies
 1. radialcenter.m by Dr. Parthasarathy, which can be downloaded [here](https://media.nature.com/original/nature-assets/nmeth/journal/v9/n7/extref/nmeth.2071-S2.zip).
