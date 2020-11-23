@@ -9,7 +9,7 @@ March 27, 2020
 * MATLAB R2019a
 
 ### Dependencies
-1. radialcenter.m by Dr. Parthasarathy, which can be downloaded [here](https://media.nature.com/original/nature-assets/nmeth/journal/v9/n7/extref/nmeth.2071-S2.zip).
+1. radialcenter.m by Dr. Parthasarathy, which can be downloaded [here](https://pages.uoregon.edu/raghu/particle_tracking.html).
 2. Fiji
 	* download at:
 	* add the scripts folder to the path
