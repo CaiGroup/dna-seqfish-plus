@@ -2,8 +2,8 @@
 %to output the final positions
 
 
-experimentDir = 'I:\Limb\071919_543genes_E13.5';
-experimentName = 'Limb-071919_543genes_E13_5';
+experimentDir = 'I:\test';
+experimentName = 'test';
 channel = 3; % 488 channel
 numFolders = 16;
 numRounds = 4;
@@ -14,16 +14,6 @@ superres = 'radial';
 fovArray = 0:3;
 dateExp = '-2019-08-10';
 totalHybs = numChannels * numRounds;
-
-% Mike Experiment
-% each channel is separate experiment
-% 5 pseudochannels
-% 4 rounds
-
-
-% Limb Experiment
-% 48 total
-% 4 rounds 12 pseudochannels
 
 
 % organize differently for experiments that use each channel
